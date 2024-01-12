@@ -1,0 +1,65 @@
+.form {
+  width: calc(100% - 32px);
+  background-color: #fefefe;
+  border-radius: 10px;
+  padding: 16px;
+
+  &Box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    align-self: stretch;
+    margin-top: 16px;
+
+    &Title {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 150%;
+
+      &.consent {
+        margin-bottom: 0;
+      }
+    }
+
+    &InputRadio {
+      display: none;
+    }
+
+    &Label {
+      position: relative;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      align-self: stretch;
+      padding: 0 0 0 28px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+
+      &::before {
+        position: absolute;
+        left: 0;
+        display: block;
+        content: '';
+      }
+
+      &span {
+        display: block;
+      }
+    }
+
+    &InputRadio + &Label {
+      &::before {
+        content: url('/icon/radio_button_unchecked.svg');
+      }
+    }
+    &InputRadio:checked + &Label {
+      &::before {
+        content: url('/icon/radio_button_checked.svg');
+      }
+    }
+  }
+}

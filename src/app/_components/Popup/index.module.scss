@@ -1,0 +1,45 @@
+.popUp {
+  &Wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    width: calc(100lvw - 40px);
+    height: auto;
+    max-width: 800px;
+    max-height: calc(100lvh - 40px);
+    overflow-y: scroll;
+
+    background-color: #fefefe;
+    border-radius: 5px;
+
+    &Header {
+      width: 100%;
+      height: 20px;
+      display: flex;
+      position: relative;
+
+      &Icon {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+      }
+    }
+    &Content {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  &Background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100lvw;
+    height: 100lvh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 8;
+  }
+}
