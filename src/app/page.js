@@ -7,6 +7,7 @@ import styles from './page.module.scss'
 
 import { Popup } from './_components/Popup'
 import { Form } from './_components/Form'
+import { foods } from './data'
 
 export default function Home() {
   const [shownArr, setShownArr] = useState(false)
@@ -16,124 +17,8 @@ export default function Home() {
   const [popupShow, setPopupShow] = useState(false)
   const [qaState, setQaState] = useState(false)
 
-  const foods = [
-    {
-      id: 0,
-      name: 'hoge10',
-      price: 100,
-      url: 'https://example.com',
-    },
-    {
-      id: 1,
-      name: 'hoge11',
-      price: 110,
-      url: 'https://example.com',
-    },
-    {
-      id: 2,
-      name: 'hoge12',
-      price: 120,
-      url: 'https://example.com',
-    },
-    {
-      id: 3,
-      name: 'hoge13',
-      price: 130,
-      url: 'https://example.com',
-    },
-    {
-      id: 4,
-      name: 'hoge14',
-      price: 140,
-      url: 'https://example.com',
-    },
-    {
-      id: 5,
-      name: 'hoge15',
-      price: 150,
-      url: 'https://example.com',
-    },
-    {
-      id: 6,
-      name: 'hoge16',
-      price: 160,
-      url: 'https://example.com',
-    },
-    {
-      id: 7,
-      name: 'hoge17',
-      price: 170,
-      url: 'https://example.com',
-    },
-    {
-      id: 8,
-      name: 'hoge',
-      price: 180,
-      url: 'https://example.com',
-    },
-    {
-      id: 9,
-      name: 'hoge',
-      price: 190,
-      url: 'https://example.com',
-    },
-    {
-      id: 10,
-      name: 'hoge',
-      price: 200,
-      url: 'https://example.com',
-    },
-    {
-      id: 11,
-      name: 'hoge',
-      price: 210,
-      url: 'https://example.com',
-    },
-    {
-      id: 12,
-      name: 'hoge',
-      price: 220,
-      url: 'https://example.com',
-    },
-    {
-      id: 13,
-      name: 'hoge',
-      price: 230,
-      url: 'https://example.com',
-    },
-    {
-      id: 14,
-      name: 'hoge',
-      price: 240,
-      url: 'https://example.com',
-    },
-    {
-      id: 15,
-      name: 'hoge',
-      price: 250,
-      url: 'https://example.com',
-    },
-    {
-      id: 16,
-      name: 'hoge',
-      price: 260,
-      url: 'https://example.com',
-    },
-    {
-      id: 17,
-      name: 'hoge',
-      price: 270,
-      url: 'https://example.com',
-    },
-    {
-      id: 18,
-      name: 'hoge',
-      price: 280,
-      url: 'https://example.com',
-    },
-  ]
-
-  const turnGacha = async () => {
+  const turnGacha = () => {
+    console.log(foods)
     const max = 1000
     let nowCost = 0
     let nowFoodsArr = []
@@ -234,10 +119,16 @@ export default function Home() {
           />
           {shownArr.map((val) => {
             return (
-              <div className={styles.priceCard}>
+              <div className={styles.priceCard} key={val.id}>
                 <div className={styles.priceCardTexts}>
                   <p className={styles.priceCardTextsName}>{val.name}</p>
-                  <p className={styles.priceCardTextsPrice}>¥{val.price}</p>
+                  <p className={styles.priceCardTextsPrice}>
+                    一個当たり
+                    {Number.isInteger(val.price)
+                      ? val.price
+                      : val.price.toFixed(1)}
+                    円
+                  </p>
                 </div>
 
                 <Link
@@ -251,7 +142,10 @@ export default function Home() {
               </div>
             )
           })}
-          <p className={styles.allPrice}>合計金額 : {allPrice}円</p>
+          <p className={styles.allPrice}>
+            合計金額 :{' '}
+            {Number.isInteger(allPrice) ? allPrice : allPrice.toFixed(1)}円
+          </p>
           <p className={styles.kome}>※価格は2023年1月11日日時点</p>
 
           <div className={styles.buttons}>
