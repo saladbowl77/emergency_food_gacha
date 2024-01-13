@@ -5,9 +5,11 @@ import { useState } from 'react'
 
 import { event } from '../../../lib/gtag'
 
-export const Form = ({ qaState, setQaState }) => {
+export const Form = ({ qaState, setQaState, formOnly }) => {
   const [isSelected, setIsSelected] = useState(false)
   const [showError, setShowError] = useState(false)
+
+  const [showLong, setShowLong] = useState(false)
 
   const handleOptionChange = (e) => {
     setIsSelected(true)
@@ -16,6 +18,13 @@ export const Form = ({ qaState, setQaState }) => {
         event: 'click_form_radio',
         event_category: 'click_event',
       })
+    }
+  }
+  const handleDidOption = (e) => {
+    if (e.target.value == '備蓄をしていない') {
+      setShowLong(false)
+    } else {
+      setShowLong(true)
     }
   }
 
@@ -37,6 +46,7 @@ export const Form = ({ qaState, setQaState }) => {
         <p className={styles.formTitle}>アンケートのお願い</p>
         <p className={styles.formAbout}>
           非常食に関するアンケートのご回答をお願いします。
+          {typeof formOnly == 'undefined' ? <>(最大3問)</> : <>(最大2問)</>}
         </p>
         {showError && (
           <p className={styles.formError}>
@@ -51,7 +61,10 @@ export const Form = ({ qaState, setQaState }) => {
             type="radio"
             name="entry.374370847"
             value="備蓄をして、定期的に確認をしている"
-            onChange={handleOptionChange}
+            onChange={(e) => {
+              handleDidOption(e)
+              handleOptionChange(e)
+            }}
           />
           <label className={styles.formBoxLabel} htmlFor="input1_1">
             <span>備蓄をして、定期的に確認をしている</span>
@@ -62,7 +75,10 @@ export const Form = ({ qaState, setQaState }) => {
             type="radio"
             name="entry.374370847"
             value="備蓄を過去にしたが、定期的に確認をしていない"
-            onChange={handleOptionChange}
+            onChange={(e) => {
+              handleDidOption(e)
+              handleOptionChange(e)
+            }}
           />
           <label className={styles.formBoxLabel} htmlFor="input1_2">
             <span>備蓄を過去にしたが、定期的に確認をしていない</span>
@@ -73,88 +89,151 @@ export const Form = ({ qaState, setQaState }) => {
             type="radio"
             name="entry.374370847"
             value="備蓄をしていない"
-            onChange={handleOptionChange}
+            onChange={(e) => {
+              handleDidOption(e)
+              handleOptionChange(e)
+            }}
           />
           <label className={styles.formBoxLabel} htmlFor="input1_3">
             <span>備蓄をしていない</span>
           </label>
         </div>
-        <div className={styles.formBox}>
-          <p className={styles.formBoxTitle}>
-            2. このアプリを使って非常食を買ってみたい、見直したいと思いましたか?
-          </p>
-          <input
-            id="input2_1"
-            className={styles.formBoxInputRadio}
-            type="radio"
-            name="entry.1719850445"
-            value="とても思った"
-            onChange={handleOptionChange}
-          />
-          <label className={styles.formBoxLabel} htmlFor="input2_1">
-            <span>とても思った</span>
-          </label>
-          <input
-            id="input2_2"
-            className={styles.formBoxInputRadio}
-            type="radio"
-            name="entry.1719850445"
-            value="思った"
-            onChange={handleOptionChange}
-          />
-          <label className={styles.formBoxLabel} htmlFor="input2_2">
-            <span>思った</span>
-          </label>
-          <input
-            id="input2_3"
-            className={styles.formBoxInputRadio}
-            type="radio"
-            name="entry.1719850445"
-            value="思わなかった"
-            onChange={handleOptionChange}
-          />
-          <label className={styles.formBoxLabel} htmlFor="input2_3">
-            <span>思わなかった</span>
-          </label>
-          <input
-            id="input2_4"
-            className={styles.formBoxInputRadio}
-            type="radio"
-            name="entry.1719850445"
-            value="全く思わなかった"
-            onChange={handleOptionChange}
-          />
-          <label className={styles.formBoxLabel} htmlFor="input2_4">
-            <span>全く思わなかった</span>
-          </label>
-        </div>
-        <div className={styles.formBox}>
-          <p className={styles.formBoxTitle}>
-            3. このアプリで出てきた非常食を買いましたか?
-          </p>
-          <input
-            id="input3_1"
-            className={styles.formBoxInputRadio}
-            type="radio"
-            name="entry.2132154400"
-            value="はい"
-            onChange={handleOptionChange}
-          />
-          <label className={styles.formBoxLabel} htmlFor="input3_1">
-            <span>はい</span>
-          </label>
-          <input
-            id="input3_2"
-            className={styles.formBoxInputRadio}
-            type="radio"
-            name="entry.2132154400"
-            value="いいえ"
-            onChange={handleOptionChange}
-          />
-          <label className={styles.formBoxLabel} htmlFor="input3_2">
-            <span>いいえ</span>
-          </label>
-        </div>
+        {showLong && (
+          <div className={styles.formBox}>
+            <p className={styles.formBoxTitle}>
+              1-2. 非常食は何日分用意していますか?
+            </p>
+            <input
+              id="input1-2_1"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.834566207"
+              value="1日"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input1-2_1">
+              <span>1日</span>
+            </label>
+            <input
+              id="input1-2_2"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.834566207"
+              value="2日"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input1-2_2">
+              <span>2日</span>
+            </label>
+            <input
+              id="input1-2_3"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.834566207"
+              value="3日"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input1-2_3">
+              <span>3日</span>
+            </label>
+            <input
+              id="input1-2_4"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.834566207"
+              value="4,5日"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input1-2_4">
+              <span>4,5日</span>
+            </label>
+            <input
+              id="input1-2_5"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.834566207"
+              value="6,7日"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input1-2_5">
+              <span>6,7日</span>
+            </label>
+            <input
+              id="input1-2_6"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.834566207"
+              value="7日以上"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input1-2_6">
+              <span>7日以上</span>
+            </label>
+            <input
+              id="input1-2_7"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.834566207"
+              value="覚えていない・わからない"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input1-2_7">
+              <span>覚えていない・わからない</span>
+            </label>
+          </div>
+        )}
+        {typeof formOnly == 'undefined' && (
+          <div className={styles.formBox}>
+            <p className={styles.formBoxTitle}>
+              2.
+              このアプリを使って非常食を買ってみたい、見直したいと思いましたか?
+            </p>
+            <input
+              id="input2_1"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.1719850445"
+              value="とても思った"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input2_1">
+              <span>とても思った</span>
+            </label>
+            <input
+              id="input2_2"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.1719850445"
+              value="思った"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input2_2">
+              <span>思った</span>
+            </label>
+            <input
+              id="input2_3"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.1719850445"
+              value="思わなかった"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input2_3">
+              <span>思わなかった</span>
+            </label>
+            <input
+              id="input2_4"
+              className={styles.formBoxInputRadio}
+              type="radio"
+              name="entry.1719850445"
+              value="全く思わなかった"
+              onChange={handleOptionChange}
+            />
+            <label className={styles.formBoxLabel} htmlFor="input2_4">
+              <span>全く思わなかった</span>
+            </label>
+          </div>
+        )}
 
         {isSelected ? (
           <button type="submit" className={styles.formSubmit}>
