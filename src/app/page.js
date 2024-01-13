@@ -98,21 +98,21 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <Image
+        className={styles.loadingImg}
+        src="/backpack_gray.png"
+        alt="読み込み中..."
+        width={200}
+        height={200}
+        style={{
+          width: '200px',
+          height: '200px',
+          objectFit: 'contain',
+          display: 'none',
+        }}
+      />
       {lodingTimer && (
         <div className={styles.loading}>
-          <Image
-            className={styles.loadingImg}
-            src="/backpack_gray.png"
-            alt="読み込み中..."
-            width={200}
-            height={200}
-            style={{
-              width: '200px',
-              height: '200px',
-              objectFit: 'contain',
-              display: 'none',
-            }}
-          />
           <Image
             className={styles.loadingImg}
             src="/backpack_gray.png"
