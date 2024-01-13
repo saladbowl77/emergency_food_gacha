@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import styles from '../page.module.scss'
 
+import { FoodCard } from '../../components/FoodCard'
+import { AllPrice } from '../../components/AllPrice'
 import { foods } from '../data'
 import { event } from '../../lib/gtag'
 
@@ -68,40 +70,10 @@ export default function Result() {
             <p className={styles.loadingText}>読み込み中...</p>
           </div>
         )}
-        {shownArr.map((val) => {
-          return (
-            <div className={styles.priceCard} key={val.id}>
-              <div className={styles.priceCardTexts}>
-                <p className={styles.priceCardTextsName}>{val.name}</p>
-                <p className={styles.priceCardTextsPrice}>
-                  ¥{Number.isInteger(val.price) ? val.price : val.price}
-                  {val.count > 1 && (
-                    <span className={styles.priceCardTextsPriceNotice}>
-                      /一個当たり
-                    </span>
-                  )}
-                </p>
-              </div>
-
-              <Link
-                className={styles.priceCardLink}
-                href={val.url}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                リンク
-              </Link>
-            </div>
-          )
-        })}
+        <FoodCard data={shownArr} />
         {shownArr.length != 0 && (
           <>
-            <p className={styles.allPrice}>
-              合計金額 :{' '}
-              {Number.isInteger(allPrice) ? allPrice : allPrice.toFixed(1)}円
-            </p>
-            <p className={styles.kome}>※価格は2023年1月11日日時点</p>
-
+            <AllPrice price={allPrice} />
             <div className={styles.buttons}>
               <Link
                 href="/"

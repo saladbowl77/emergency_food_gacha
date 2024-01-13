@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import styles from './page.module.scss'
 
+import { FoodCard } from '../components/FoodCard'
+import { AllPrice } from '../components/AllPrice'
 import { Popup } from './_components/Popup'
 import { Form } from './_components/Form'
 import { foods } from './data'
@@ -149,40 +151,9 @@ export default function Home() {
             qaState={qaState}
             setQaState={setQaState}
           />
-          {shownArr.map((val) => {
-            return (
-              <div className={styles.priceCard} key={val.id}>
-                <div className={styles.priceCardTexts}>
-                  <p className={styles.priceCardTextsName}>{val.name}</p>
-                  <p className={styles.priceCardTextsPrice}>
-                    ¥
-                    {Number.isInteger(val.price)
-                      ? val.price
-                      : val.price.toFixed(1)}
-                    {val.count > 1 && (
-                      <span className={styles.priceCardTextsPriceNotice}>
-                        /一個当たり
-                      </span>
-                    )}
-                  </p>
-                </div>
 
-                <Link
-                  className={styles.priceCardLink}
-                  href={val.url}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  リンク
-                </Link>
-              </div>
-            )
-          })}
-          <p className={styles.allPrice}>
-            合計金額 :{' '}
-            {Number.isInteger(allPrice) ? allPrice : allPrice.toFixed(1)}円
-          </p>
-          <p className={styles.kome}>※価格は2023年1月11日日時点</p>
+          <FoodCard data={shownArr} />
+          <AllPrice price={allPrice} />
 
           <div className={styles.buttons}>
             <div className={styles.buttonsShare}>
@@ -248,7 +219,7 @@ export default function Home() {
       {shownArr.length == 0 && (
         <section className={styles.beforeSection}>
           <p className={styles.beforeSectionText}>
-            非常食を1000円分選んでくれるガチャ!
+            非常食を(大体)1000円分選んでくれるガチャ!
           </p>
           <p className={styles.beforeSectionText}>
             意外とちょっと常備して忘れがちな非常食。こんな非常食もあるんだという発見と備蓄のきっかけになれば幸いです。
