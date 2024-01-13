@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { event } from '../../lib/gtag'
+
 import styles from './index.module.scss'
 
 export const FoodCard = ({ data }) => {
