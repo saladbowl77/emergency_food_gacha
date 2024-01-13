@@ -39,7 +39,7 @@ export const Form = ({ qaState, setQaState, formOnly }) => {
       <div className={qaState ? styles.displayHidden : styles.displayShow}>
         <p className={styles.formTitle}>アンケートのお願い</p>
         <p className={styles.formAbout}>
-          非常食に関するアンケートのご回答をお願いします。
+          大学の課題のため、非常食に関するアンケートにご協力お願いします。
           {typeof formOnly == 'undefined' ? <>(最大3問)</> : <>(最大2問)</>}
         </p>
         {showError && (
