@@ -12,18 +12,22 @@ import { foods } from './data'
 export default function Home() {
   const [shownArr, setShownArr] = useState(false)
   const [allPrice, setAllPrice] = useState(false)
+
+  const [shareUrl, setShareUrl] = useState('')
+
   const [isWebShare, setIsWebShare] = useState(false)
   const [lodingTimer, setLodingTimer] = useState(false)
   const [popupShow, setPopupShow] = useState(false)
   const [qaState, setQaState] = useState(false)
 
   const turnGacha = () => {
-    console.log(foods)
     const max = 1000
     let nowCost = 0
     let nowFoodsArr = []
     setShownArr([])
     setAllPrice(null)
+
+    let idArr = []
 
     while (max > nowCost) {
       let foodsArr = []
@@ -36,6 +40,7 @@ export default function Home() {
       if (foodsArr.length == 0) break
 
       const pickUpFood = foodsArr[Math.floor(Math.random() * foodsArr.length)]
+      idArr.push(pickUpFood.id)
       nowFoodsArr.push(pickUpFood)
       nowCost += pickUpFood.price
     }
@@ -50,6 +55,9 @@ export default function Home() {
 
     setShownArr(nowFoodsArr)
     setAllPrice(nowCost)
+    setShareUrl(
+      `https://emergency-food-gacha.rkwt.me/result?id=${idArr.join('-')}`,
+    )
   }
 
   const share = async () => {
@@ -60,9 +68,9 @@ export default function Home() {
 
     try {
       await window.navigator.share({
-        title: 'Share API で共有！',
-        text: 'ご覧の通り、お手軽にSNSにリンクを供することができます。',
-        url: 'https://example.com/hogehoge',
+        title: '非常食ガチャを回しました!',
+        text: 'ランダムな非常食が出てくる非常食ガチャ。是非試してみてね!',
+        url: shareUrl,
       })
       alert('共有が完了しました。')
       if (!qaState) {
@@ -156,7 +164,7 @@ export default function Home() {
             <div className={styles.buttonsShare}>
               <Link
                 className={styles.buttonsShareTwitter}
-                href={`https://twitter.com/intent/tweet?text=非常食ガチャを回しました!&hashtags=非常食ガチャ&related=saladbowl_dev&url=https://hijousyoku.rkwt.me/result?id=0-2-3-4`}
+                href={`https://twitter.com/intent/tweet?text=非常食ガチャを回しました!&hashtags=非常食ガチャ&related=saladbowl_dev&url=${shareUrl}`}
                 rel="noopener noreferrer"
                 target="_blank"
                 onClick={() => {
