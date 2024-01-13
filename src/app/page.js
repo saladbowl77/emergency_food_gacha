@@ -12,8 +12,8 @@ import { foods } from './data'
 import { event } from '../lib/gtag'
 
 export default function Home() {
-  const [shownArr, setShownArr] = useState(false)
-  const [allPrice, setAllPrice] = useState(false)
+  const [shownArr, setShownArr] = useState([])
+  const [allPrice, setAllPrice] = useState(0)
 
   const [shareUrl, setShareUrl] = useState('')
 
@@ -141,7 +141,7 @@ export default function Home() {
           <p className={styles.loadingText}>ガチャ引き中...</p>
         </div>
       )}
-      {shownArr != [] && !lodingTimer && (
+      {shownArr.length != 0 && !lodingTimer && (
         <section>
           <Popup
             show={popupShow}
@@ -245,7 +245,7 @@ export default function Home() {
           </div>
         </section>
       )}
-      {shownArr == [] && (
+      {shownArr.length == 0 && (
         <section className={styles.beforeSection}>
           <p className={styles.beforeSectionText}>
             非常食を1000円分選んでくれるガチャ!
@@ -259,7 +259,7 @@ export default function Home() {
             }}
             className={styles.turnButton}
           >
-            {shownArr != [] && 'もう一度'}回してみる
+            {shownArr.length != 0 && 'もう一度'}回してみる
           </button>
         </section>
       )}
