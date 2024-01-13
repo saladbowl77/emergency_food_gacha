@@ -62,7 +62,7 @@ export default function Home() {
     setShownArr(nowFoodsArr)
     setAllPrice(nowCost)
     setShareUrl(
-      `https://emergency-food-gacha.rkwt.me/result?id=${idArr.join('-')}`,
+      `https://emergency-food-gacha.rkwt.me/share?id=${idArr.join('-')}`,
     )
   }
 
