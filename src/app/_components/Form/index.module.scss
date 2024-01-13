@@ -27,13 +27,13 @@
     align-items: flex-start;
     align-self: stretch;
     margin-top: 16px;
+    text-align: left;
 
     &Title {
       font-size: 16px;
       font-style: normal;
       font-weight: 500;
       line-height: 150%;
-      text-align: left;
 
       &.consent {
         margin-bottom: 0;
