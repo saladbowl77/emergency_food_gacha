@@ -123,11 +123,15 @@ export default function Home() {
                 <div className={styles.priceCardTexts}>
                   <p className={styles.priceCardTextsName}>{val.name}</p>
                   <p className={styles.priceCardTextsPrice}>
-                    一個当たり
+                    ¥
                     {Number.isInteger(val.price)
                       ? val.price
                       : val.price.toFixed(1)}
-                    円
+                    {val.count > 1 && (
+                      <span className={styles.priceCardTextsPriceNotice}>
+                        /一個当たり
+                      </span>
+                    )}
                   </p>
                 </div>
 
