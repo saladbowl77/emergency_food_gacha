@@ -641,9 +641,9 @@ export const foods = [
   {
     id: 72,
     name: 'ミルクスティック',
-    price: 40.5,
+    price: 324,
     priceAll: 324,
-    count: 8,
+    count: 1,
     limit: '',
     url: 'https://www.onisifoods.co.jp/products/milkstick.html',
   },
