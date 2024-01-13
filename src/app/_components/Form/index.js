@@ -7,7 +7,6 @@ import { event } from '../../../lib/gtag'
 
 export const Form = ({ qaState, setQaState, formOnly }) => {
   const [isSelected, setIsSelected] = useState(false)
-  const [showError, setShowError] = useState(false)
 
   const [showLong, setShowLong] = useState(false)
 
@@ -42,11 +41,6 @@ export const Form = ({ qaState, setQaState, formOnly }) => {
           大学の課題のため、非常食に関するアンケートにご協力お願いします。
           {typeof formOnly == 'undefined' ? <>(最大3問)</> : <>(最大2問)</>}
         </p>
-        {showError && (
-          <p className={styles.formError}>
-            送信する際は一つ以上選択してください。
-          </p>
-        )}
         <div className={styles.formBox}>
           <p className={styles.formBoxTitle}>1. 非常食の備蓄をしていますか?</p>
           <input
@@ -54,31 +48,46 @@ export const Form = ({ qaState, setQaState, formOnly }) => {
             className={styles.formBoxInputRadio}
             type="radio"
             name="entry.374370847"
-            value="備蓄をして、定期的に確認をしている"
+            value="以前から備蓄をして、定期的に確認をしている"
             onChange={(e) => {
               handleDidOption(e)
               handleOptionChange(e)
             }}
           />
           <label className={styles.formBoxLabel} htmlFor="input1_1">
-            <span>備蓄をして、定期的に確認をしている</span>
+            <span>以前から備蓄をして、定期的に確認をしている</span>
           </label>
           <input
             id="input1_2"
             className={styles.formBoxInputRadio}
             type="radio"
             name="entry.374370847"
-            value="備蓄を過去にしたが、定期的に確認をしていない"
+            value="以前に備蓄をしたが、定期的に確認をしていない"
             onChange={(e) => {
               handleDidOption(e)
               handleOptionChange(e)
             }}
           />
           <label className={styles.formBoxLabel} htmlFor="input1_2">
-            <span>備蓄を過去にしたが、定期的に確認をしていない</span>
+            <span>以前に備蓄をしたが、定期的に確認をしていない</span>
           </label>
+
           <input
             id="input1_3"
+            className={styles.formBoxInputRadio}
+            type="radio"
+            name="entry.374370847"
+            value="最近の地震を見て、備蓄を始めた"
+            onChange={(e) => {
+              handleDidOption(e)
+              handleOptionChange(e)
+            }}
+          />
+          <label className={styles.formBoxLabel} htmlFor="input1_3">
+            <span>最近の地震を見て、備蓄を始めた</span>
+          </label>
+          <input
+            id="input1_4"
             className={styles.formBoxInputRadio}
             type="radio"
             name="entry.374370847"
@@ -88,7 +97,7 @@ export const Form = ({ qaState, setQaState, formOnly }) => {
               handleOptionChange(e)
             }}
           />
-          <label className={styles.formBoxLabel} htmlFor="input1_3">
+          <label className={styles.formBoxLabel} htmlFor="input1_4">
             <span>備蓄をしていない</span>
           </label>
         </div>
