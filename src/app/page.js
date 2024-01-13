@@ -33,10 +33,11 @@ export default function Home() {
     setAllPrice(null)
 
     let idArr = []
+    let foodArr = foods
 
     while (max > nowCost) {
       let foodsArr = []
-      for (const food of foods) {
+      for (const food of foodArr) {
         if (max - nowCost > food.price) {
           foodsArr.push(food)
         }
@@ -46,6 +47,11 @@ export default function Home() {
 
       const pickUpFood = foodsArr[Math.floor(Math.random() * foodsArr.length)]
       idArr.push(pickUpFood.id)
+      for (let i = 0; i < foodArr.lebgth; i++) {
+        if (food.id == pickUpFood.id) {
+          foodArr.pop(i)
+        }
+      }
       nowFoodsArr.push(pickUpFood)
       nowCost += pickUpFood.price
     }
@@ -99,7 +105,6 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Image
-        className={styles.loadingImg}
         src="/backpack_gray.png"
         alt="読み込み中..."
         width={200}
