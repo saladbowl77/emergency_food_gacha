@@ -14,10 +14,7 @@ export const Form = ({ qaState, setQaState, formOnly }) => {
   const handleOptionChange = (e) => {
     setIsSelected(true)
     if (!isSelected) {
-      event({
-        event: 'click_form_radio',
-        event_category: 'click_event',
-      })
+      event('click_form_radio')
     }
   }
   const handleDidOption = (e) => {
@@ -35,10 +32,7 @@ export const Form = ({ qaState, setQaState, formOnly }) => {
       method="POST"
       target="hidden_iframe"
       onSubmit={() => {
-        event({
-          event: 'click_form_submit',
-          event_category: 'click_event',
-        })
+        event('click_form_submit')
         setQaState(true)
       }}
     >

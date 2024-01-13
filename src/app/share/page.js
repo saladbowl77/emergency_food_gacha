@@ -78,10 +78,7 @@ export default function Result() {
               <Link
                 href="/"
                 onClick={() => {
-                  event({
-                    event: 'click_re_turnGacha',
-                    event_category: 'click_event',
-                  })
+                  event('click_re_turnGacha')
                 }}
                 className={styles.turnButton}
               >

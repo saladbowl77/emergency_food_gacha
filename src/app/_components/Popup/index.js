@@ -14,10 +14,7 @@ export const Popup = ({ show, setShow, qaState, setQaState }) => {
             <Image
               className={styles.popUpWrapHeaderIcon}
               onClick={() => {
-                event({
-                  event: 'click_popup_close',
-                  event_category: 'click_event',
-                })
+                event('click_popup_close')
                 setShow(false)
               }}
               src="/icon/close.svg"
@@ -38,10 +35,7 @@ export const Popup = ({ show, setShow, qaState, setQaState }) => {
         <div
           className={styles.popUpBackground}
           onClick={() => {
-            event({
-              event: 'click_popup_close',
-              event_category: 'click_event',
-            })
+            event('click_popup_close')
             setShow(false)
           }}
         ></div>

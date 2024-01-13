@@ -8,11 +8,6 @@ export const pageview = (path) => {
   })
 }
 
-export const event = (obj) => {
-  if (
-    typeof window !== 'undefined' &&
-    typeof window.dataLayer !== 'undefined'
-  ) {
-    window.dataLayer.push(obj)
-  }
+export const event = (event_name) => {
+  gtag('event', event_name)
 }

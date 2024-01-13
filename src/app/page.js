@@ -25,10 +25,7 @@ export default function Home() {
   const [qaState, setQaState] = useState(false)
 
   const turnGacha = () => {
-    event({
-      event: 'click_turnGacha',
-      event_category: 'click_event',
-    })
+    event('click_turnGacha')
     const max = 1000
     let nowCost = 0
     let nowFoodsArr = []
@@ -70,10 +67,7 @@ export default function Home() {
 
   const share = async () => {
     if (!window.navigator.share) {
-      event({
-        event: 'click_share_api_cant',
-        event_category: 'click_event',
-      })
+      event('click_share_api_cant')
       alert('ご利用のブラウザでは共有できません。')
       return
     }
@@ -84,24 +78,15 @@ export default function Home() {
         text: 'ランダムな非常食が出てくる非常食ガチャ。是非試してみてね!',
         url: shareUrl,
       })
-      event({
-        event: 'click_share_api',
-        event_category: 'click_event',
-      })
+      event('click_share_api')
       if (!qaState) {
         await setPopupShow(true)
       }
     } catch (e) {
       if (e.message == 'Abort due to cancellation of share.') {
-        event({
-          event: 'click_share_api_cancel',
-          event_category: 'click_event',
-        })
+        event('click_share_api_cancel')
       } else {
-        event({
-          event: 'click_share_api_error',
-          event_category: 'click_event',
-        })
+        event('click_share_api_error')
       }
       console.log(e)
     }
@@ -163,10 +148,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 target="_blank"
                 onClick={() => {
-                  event({
-                    event: 'click_share_twitter',
-                    event_category: 'click_event',
-                  })
+                  event('click_share_twitter')
                   if (!qaState) setPopupShow(true)
                 }}
               >
@@ -200,10 +182,7 @@ export default function Home() {
             </div>
             <button
               onClick={() => {
-                event({
-                  event: 'click_re_turnGacha',
-                  event_category: 'click_event',
-                })
+                event('click_re_turnGacha')
                 turnGacha()
               }}
               className={styles.turnButton}

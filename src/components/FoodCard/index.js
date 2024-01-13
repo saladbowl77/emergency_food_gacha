@@ -28,10 +28,7 @@ export const FoodCard = ({ data }) => {
               className={styles.priceCardLink}
               href={val.url}
               onClick={() => {
-                event({
-                  event: `click_card_url_${val.url}`,
-                  event_category: 'click_event',
-                })
+                event(`click_card_url_${val.id}`)
               }}
               rel="noopener noreferrer"
               target="_blank"
