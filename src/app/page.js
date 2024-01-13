@@ -14,6 +14,7 @@ export default function Home() {
   const [isWebShare, setIsWebShare] = useState(false)
   const [lodingTimer, setLodingTimer] = useState(false)
   const [popupShow, setPopupShow] = useState(false)
+  const [qaState, setQaState] = useState(false)
 
   const foods = [
     {
@@ -179,11 +180,12 @@ export default function Home() {
         url: 'https://example.com/hogehoge',
       })
       alert('共有が完了しました。')
+      if (!qaState) {
+        await setPopupShow(true)
+      }
     } catch (e) {
       console.log(e.message)
     }
-
-    await setPopupShow(true)
   }
 
   useEffect(() => {
@@ -204,6 +206,19 @@ export default function Home() {
               width: '200px',
               height: '200px',
               objectFit: 'contain',
+              display: 'none',
+            }}
+          />
+          <Image
+            className={styles.loadingImg}
+            src="/backpack_gray.png"
+            alt="読み込み中..."
+            width={200}
+            height={200}
+            style={{
+              width: '200px',
+              height: '200px',
+              objectFit: 'contain',
             }}
           />
           <p className={styles.loadingText}>ガチャ引き中...</p>
@@ -211,7 +226,12 @@ export default function Home() {
       )}
       {shownArr != [] && !lodingTimer && (
         <section>
-          <Popup show={popupShow} setShow={setPopupShow} />
+          <Popup
+            show={popupShow}
+            setShow={setPopupShow}
+            qaState={qaState}
+            setQaState={setQaState}
+          />
           {shownArr.map((val) => {
             return (
               <div className={styles.priceCard}>
@@ -242,7 +262,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 target="_blank"
                 onClick={() => {
-                  setPopupShow(true)
+                  if (!qaState) setPopupShow(true)
                 }}
               >
                 <div className={styles.buttonsShareTwitterImage}>
@@ -283,7 +303,7 @@ export default function Home() {
             </button>
           </div>
           <div className={styles.formWrap}>
-            <Form />
+            <Form qaState={qaState} setQaState={setQaState} />
           </div>
         </section>
       )}

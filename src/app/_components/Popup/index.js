@@ -4,7 +4,7 @@ import styles from './index.module.scss'
 
 import { Form } from '../Form'
 
-export const Popup = ({ show, setShow }) => {
+export const Popup = ({ show, setShow, qaState, setQaState }) => {
   if (show) {
     return (
       <section className={styles.popUp}>
@@ -27,7 +27,7 @@ export const Popup = ({ show, setShow }) => {
             />
           </div>
           <div className={styles.popUpWrapContent}>
-            <Form />
+            <Form qaState={qaState} setQaState={setQaState} />
           </div>
         </div>
         <div

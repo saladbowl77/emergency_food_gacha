@@ -1,8 +1,24 @@
+.displayShow {
+  display: block;
+}
+.displayHidden {
+  display: none;
+}
 .form {
   width: calc(100% - 32px);
   background-color: #fefefe;
   border-radius: 10px;
   padding: 16px;
+
+  &Title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.5em;
+  }
+
+  &Error {
+    color: #ff0000;
+  }
 
   &Box {
     display: flex;
@@ -17,6 +33,7 @@
       font-style: normal;
       font-weight: 500;
       line-height: 150%;
+      text-align: left;
 
       &.consent {
         margin-bottom: 0;
@@ -60,6 +77,29 @@
       &::before {
         content: url('/icon/radio_button_checked.svg');
       }
+    }
+  }
+
+  &Submit {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 32px;
+    background-color: #000;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 5px;
+
+    &Disable {
+      display: block;
+      margin: 20px auto 0 auto;
+      padding: 10px 32px;
+      background-color: #000;
+      color: #fff;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 5px;
+      opacity: 0.6;
     }
   }
 }
