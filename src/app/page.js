@@ -26,7 +26,7 @@ export default function Home() {
 
   const turnGacha = () => {
     event('click_turnGacha')
-    const max = 1000
+    const max = 1001
     let nowCost = 0
     let nowFoodsArr = []
     setShownArr([])
@@ -42,16 +42,16 @@ export default function Home() {
           foodsArr.push(food)
         }
       }
-
       if (foodsArr.length == 0) break
 
       const pickUpFood = foodsArr[Math.floor(Math.random() * foodsArr.length)]
       idArr.push(pickUpFood.id)
-      for (let i = 0; i < foodArr.lebgth; i++) {
-        if (food.id == pickUpFood.id) {
-          foodArr.pop(i)
-        }
-      }
+      // for (let i = 0; i < foodArr.length; i++) {
+      //   if (foodArr[i].id === pickUpFood.id) {
+      //     const hoge = foodArr.splice(i, 1)
+      //     console.log(hoge)
+      //   }
+      // }
       nowFoodsArr.push(pickUpFood)
       nowCost += pickUpFood.price
     }
