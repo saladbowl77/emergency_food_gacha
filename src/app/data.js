@@ -5,6 +5,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/166',
   },
   {
@@ -13,6 +14,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/165',
   },
   {
@@ -21,6 +23,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/164',
   },
   {
@@ -29,6 +32,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/162',
   },
   {
@@ -37,6 +41,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/160',
   },
   {
@@ -45,6 +50,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/159',
   },
   {
@@ -53,6 +59,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/158',
   },
   {
@@ -61,6 +68,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/155',
   },
   {
@@ -69,6 +77,7 @@ export const foods = [
     price: 324,
     priceAll: 324,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/163',
   },
   {
@@ -77,6 +86,7 @@ export const foods = [
     price: 302,
     priceAll: 302,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/157',
   },
   {
@@ -85,6 +95,7 @@ export const foods = [
     price: 334,
     priceAll: 334,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/156',
   },
   {
@@ -93,6 +104,7 @@ export const foods = [
     price: 378,
     priceAll: 378,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/161',
   },
   {
@@ -101,6 +113,7 @@ export const foods = [
     price: 432,
     priceAll: 432,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/154',
   },
   {
@@ -109,6 +122,7 @@ export const foods = [
     price: 324,
     priceAll: 324,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/153',
   },
   {
@@ -117,6 +131,7 @@ export const foods = [
     price: 324,
     priceAll: 324,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/152',
   },
   {
@@ -125,6 +140,7 @@ export const foods = [
     price: 324,
     priceAll: 324,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/151',
   },
   {
@@ -133,6 +149,7 @@ export const foods = [
     price: 324,
     priceAll: 324,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/139',
   },
   {
@@ -141,6 +158,7 @@ export const foods = [
     price: 291,
     priceAll: 291,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/140',
   },
   {
@@ -149,7 +167,8 @@ export const foods = [
     price: 9720,
     priceAll: 9720,
     count: 1,
-    url: 'https://www.seishop.jp/view/item/000000000953?category_page_id=risotto',
+    limit: '25年',
+    url: 'https://www.seishop.jp/view/item/000000000953',
   },
   {
     id: 20,
@@ -157,7 +176,8 @@ export const foods = [
     price: 9720,
     priceAll: 9720,
     count: 1,
-    url: 'https://www.seishop.jp/view/item/000000000954?category_page_id=risotto',
+    limit: '25年',
+    url: 'https://www.seishop.jp/view/item/000000000954',
   },
   {
     id: 21,
@@ -165,7 +185,8 @@ export const foods = [
     price: 3780,
     priceAll: 3780,
     count: 1,
-    url: 'https://www.seishop.jp/view/item/000000000955?category_page_id=risotto',
+    limit: '25年',
+    url: 'https://www.seishop.jp/view/item/000000000955',
   },
   {
     id: 22,
@@ -173,7 +194,8 @@ export const foods = [
     price: 3780,
     priceAll: 3780,
     count: 1,
-    url: 'https://www.seishop.jp/view/item/000000000956?category_page_id=risotto',
+    limit: '',
+    url: 'https://www.seishop.jp/view/item/000000000956',
   },
   {
     id: 23,
@@ -181,6 +203,7 @@ export const foods = [
     price: 561.5,
     priceAll: 3369,
     count: 6,
+    limit: '',
     url: 'https://okadayabousai-select.com/SHOP/HZS024.html',
   },
   {
@@ -189,6 +212,7 @@ export const foods = [
     price: 561.5,
     priceAll: 3369,
     count: 6,
+    limit: '',
     url: 'https://okadayabousai-select.com/SHOP/HZS046.html',
   },
   {
@@ -197,6 +221,7 @@ export const foods = [
     price: 561.5,
     priceAll: 3369,
     count: 6,
+    limit: '',
     url: 'https://okadayabousai-select.com/SHOP/HZS030.html',
   },
   {
@@ -205,6 +230,7 @@ export const foods = [
     price: 129.6,
     priceAll: 648,
     count: 5,
+    limit: '',
     url: 'https://www.imuraya-webshop.jp/shop/g/gJA1116600190S/',
   },
   {
@@ -213,6 +239,7 @@ export const foods = [
     price: 324,
     priceAll: 324,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/hakuhan.html',
   },
   {
@@ -221,6 +248,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/gomoku_allergy.html',
   },
   {
@@ -229,6 +257,7 @@ export const foods = [
     price: 378,
     priceAll: 378,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/wakame.html',
   },
   {
@@ -237,6 +266,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/inaka.html',
   },
   {
@@ -245,6 +275,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/takenoko.html',
   },
   {
@@ -253,6 +284,7 @@ export const foods = [
     price: 453,
     priceAll: 453,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/sansai.html',
   },
   {
@@ -261,6 +293,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/sekihan.html',
   },
   {
@@ -269,6 +302,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/drycurry.html',
   },
   {
@@ -277,6 +311,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/gomoku.html',
   },
   {
@@ -285,6 +320,7 @@ export const foods = [
     price: 475,
     priceAll: 475,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/matsutake.html',
   },
   {
@@ -293,6 +329,7 @@ export const foods = [
     price: 410,
     priceAll: 410,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/chickenrice.html',
   },
   {
@@ -301,6 +338,7 @@ export const foods = [
     price: 453,
     priceAll: 453,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/ebipilaf.html',
   },
   {
@@ -309,6 +347,7 @@ export const foods = [
     price: 356,
     priceAll: 356,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/91',
   },
   {
@@ -317,6 +356,7 @@ export const foods = [
     price: 540,
     priceAll: 540,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/150',
   },
   {
@@ -325,6 +365,7 @@ export const foods = [
     price: 540,
     priceAll: 540,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/149',
   },
   {
@@ -333,6 +374,7 @@ export const foods = [
     price: 540,
     priceAll: 540,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/148',
   },
   {
@@ -341,6 +383,7 @@ export const foods = [
     price: 378,
     priceAll: 378,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/144',
   },
   {
@@ -349,6 +392,7 @@ export const foods = [
     price: 388,
     priceAll: 388,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/143',
   },
   {
@@ -357,6 +401,7 @@ export const foods = [
     price: 302,
     priceAll: 302,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/142',
   },
   {
@@ -365,6 +410,7 @@ export const foods = [
     price: 356,
     priceAll: 356,
     count: 1,
+    limit: '',
     url: 'https://www.alpha-online.jp/items/141',
   },
   {
@@ -373,6 +419,7 @@ export const foods = [
     price: 302,
     priceAll: 302,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/shirogayu.html',
   },
   {
@@ -381,6 +428,7 @@ export const foods = [
     price: 334,
     priceAll: 334,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/umegayu.html',
   },
   {
@@ -389,6 +437,7 @@ export const foods = [
     price: 334,
     priceAll: 334,
     count: 1,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/shiokonbugayu.html',
   },
   {
@@ -397,6 +446,7 @@ export const foods = [
     price: 270,
     priceAll: 270,
     count: 1,
+    limit: '',
     url: 'https://izameshi.com/fruit-drop/',
   },
   {
@@ -405,6 +455,7 @@ export const foods = [
     price: 540,
     priceAll: 540,
     count: 1,
+    limit: '',
     url: 'https://unique-sb.co.jp/product/mochi-rokunen-new/',
   },
   {
@@ -413,6 +464,7 @@ export const foods = [
     price: 647.5,
     priceAll: 2590,
     count: 4,
+    limit: '',
     url: 'https://lifestock.jp/',
   },
   {
@@ -421,6 +473,7 @@ export const foods = [
     price: 262.4166666666667,
     priceAll: 6298,
     count: 24,
+    limit: '',
     url: 'https://shop.bourbon.jp/products/detail/KA-35016',
   },
   {
@@ -429,6 +482,7 @@ export const foods = [
     price: 486,
     priceAll: 2916,
     count: 6,
+    limit: '',
     url: 'https://saiboupark.jp/products/detail/122',
   },
   {
@@ -437,6 +491,7 @@ export const foods = [
     price: 150,
     priceAll: 150,
     count: 1,
+    limit: '',
     url: 'https://www.kirishima-yuusui.jp/shibushi_water',
   },
   {
@@ -445,6 +500,7 @@ export const foods = [
     price: 82.5,
     priceAll: 1980,
     count: 24,
+    limit: '',
     url: 'https://surf-bev.com/lineup/shizensui/',
   },
   {
@@ -453,6 +509,7 @@ export const foods = [
     price: 162,
     priceAll: 3888,
     count: 24,
+    limit: '',
     url: 'https://www.pro-bousai.jp/shop/shopdetail.html?brandcode=000000000011&search=%A3%B5%C7%AF%CA%DD%C2%B8%BF%E5&sort=',
   },
   {
@@ -461,6 +518,7 @@ export const foods = [
     price: 300,
     priceAll: 3600,
     count: 12,
+    limit: '',
     url: 'https://akol.jp/c/item-list/stockwater/10118',
   },
   {
@@ -469,6 +527,7 @@ export const foods = [
     price: 340.1666666666667,
     priceAll: 2041,
     count: 6,
+    limit: '',
     url: 'https://www.kanaginohana.com/hozon/',
   },
   {
@@ -477,6 +536,7 @@ export const foods = [
     price: 160,
     priceAll: 160,
     count: 1,
+    limit: '',
     url: 'https://www.asahiinryo.co.jp/products/water/oisgiimizu-tyoukihozon/',
   },
   {
@@ -485,6 +545,7 @@ export const foods = [
     price: 567,
     priceAll: 3402,
     count: 6,
+    limit: '',
     url: 'https://store.shopping.yahoo.co.jp/jm-ns/',
   },
   {
@@ -493,6 +554,7 @@ export const foods = [
     price: 121.41666666666667,
     priceAll: 2914,
     count: 24,
+    limit: '',
     url: 'https://akol.jp/c/item-list/stockwater/10167',
   },
   {
@@ -501,6 +563,7 @@ export const foods = [
     price: 97.95833333333333,
     priceAll: 2351,
     count: 24,
+    limit: '',
     url: 'https://daianshin.com/SHOP/101030.html',
   },
   {
@@ -509,6 +572,7 @@ export const foods = [
     price: 83.33333333333333,
     priceAll: 2000,
     count: 24,
+    limit: '',
     url: 'https://www.irisplaza.co.jp/index.php?KB=SHOSAI&SID=H574411',
   },
   {
@@ -517,78 +581,115 @@ export const foods = [
     price: 810,
     priceAll: 4860,
     count: 6,
+    limit: '製造後3年',
     url: 'https://e-shop.yoshinoya.com/shop/g/g666198/',
   },
   {
     id: 66,
+    name: '吉野家 缶飯焼鶏',
+    price: 810,
+    priceAll: 4860,
+    count: 6,
+    limit: '製造後3年',
+    url: 'https://e-shop.yoshinoya.com/shop/g/g666202/',
+  },
+  {
+    id: 67,
+    name: '吉野家 缶飯豚丼',
+    price: 810,
+    priceAll: 4860,
+    count: 6,
+    limit: '製造後3年',
+    url: 'https://e-shop.yoshinoya.com/shop/g/g666372/',
+  },
+  {
+    id: 68,
+    name: '吉野家 缶飯塩さば丼',
+    price: 810,
+    priceAll: 4860,
+    count: 6,
+    limit: '製造後3年',
+    url: 'https://e-shop.yoshinoya.com/shop/g/g666203/',
+  },
+  {
+    id: 69,
     name: 'たべっ子どうぶつビスケット',
     price: 475,
     priceAll: 475,
     count: 1,
+    limit: '',
     url: 'https://murokanamono.com/item-detail/997984',
   },
   {
-    id: 67,
+    id: 70,
     name: 'ビスコ保存缶',
     price: 536.8,
     priceAll: 5368,
     count: 10,
-    url: 'https://shop.glico.com/pages/food-gift-kashi-icecream-item-6731460/?checked=1',
+    limit: '',
+    url: 'https://shop.glico.com/pages/food-gift-kashi-icecream-item-6731460/',
   },
   {
-    id: 68,
+    id: 71,
     name: 'ルヴァンプライムクラッカー',
     price: 489,
     priceAll: 489,
     count: 1,
+    limit: '',
     url: 'https://store.shopping.yahoo.co.jp/soukai/4903015110381.html?sc_e=slga_pla_i_shp_02498&gbraid=0AAAAAC2i689aam1qBYqZT-vHsXgQjt6vw&gclid=EAIaIQobChMI3cTr7urUgwMVW9gWBR3mfQVgEAQYBCABEgJiU_D_BwE',
   },
   {
-    id: 69,
+    id: 72,
     name: 'ミルクスティック',
     price: 40.5,
     priceAll: 324,
     count: 8,
+    limit: '',
     url: 'https://www.onisifoods.co.jp/products/milkstick.html',
   },
   {
-    id: 70,
+    id: 73,
     name: 'ハーベスト保存缶',
     price: 432,
     priceAll: 432,
     count: 1,
+    limit: '',
     url: 'https://www.google.com/search?q=%E6%9D%B1%E3%83%8F%E3%83%88+%E3%83%8F%E3%83%BC%E3%83%99%E3%82%B9%E3%83%88+%E9%9D%9E%E5%B8%B8%E9%A3%9F&ie=UTF-8&oe=UTF-8&hl=ja-jp&client=safari#oshopproduct=pid:9202178481827419655,oid:9202178481827419655,iid:16430557494733294127,pvt:hg,pvo:3&oshop=apv&pvs=0',
   },
   {
-    id: 71,
+    id: 74,
     name: 'ライスクッキー（ココナッツ）',
     price: 130,
     priceAll: 130,
     count: 1,
+    limit: '',
     url: 'https://item.rakuten.co.jp/auc-super-ism77/ecoeat_742/?scid=af_sp_etc&sc2id=af_117_0_10002089',
   },
   {
-    id: 72,
+    id: 75,
     name: 'パイン飴保存缶',
     price: 486,
     priceAll: 486,
     count: 1,
+    limit: '',
     url: 'https://pineame.net/items/5668e0573bcba9a37d003a1e',
   },
   {
-    id: 73,
+    id: 76,
     name: 'マリービスケット',
     price: 324,
     priceAll: 324,
     count: 1,
+    limit: '',
     url: 'https://www.morinaga.co.jp/public/newsrelease/web/fix/file6013995333362.pdf',
   },
   {
-    id: 74,
+    id: 77,
     name: 'スーパーバランス',
     price: 378,
     priceAll: 378,
     count: 1,
+    limit: '',
     url: 'https://unique-sb.co.jp/product/super-balance/',
   },
 ]
