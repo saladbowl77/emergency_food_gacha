@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from './index.module.scss'
 
 import { Form } from '../Form'
+import { event } from '../../../lib/gtag'
 
 export const Popup = ({ show, setShow, qaState, setQaState }) => {
   if (show) {
@@ -13,6 +14,10 @@ export const Popup = ({ show, setShow, qaState, setQaState }) => {
             <Image
               className={styles.popUpWrapHeaderIcon}
               onClick={() => {
+                event({
+                  event: 'click_popup_close',
+                  event_category: 'click_event',
+                })
                 setShow(false)
               }}
               src="/icon/close.svg"
@@ -33,6 +38,10 @@ export const Popup = ({ show, setShow, qaState, setQaState }) => {
         <div
           className={styles.popUpBackground}
           onClick={() => {
+            event({
+              event: 'click_popup_close',
+              event_category: 'click_event',
+            })
             setShow(false)
           }}
         ></div>

@@ -3,12 +3,20 @@ import Image from 'next/image'
 import styles from './index.module.scss'
 import { useState } from 'react'
 
+import { event } from '../../../lib/gtag'
+
 export const Form = ({ qaState, setQaState }) => {
   const [isSelected, setIsSelected] = useState(false)
   const [showError, setShowError] = useState(false)
 
-  const handleOptionChange = (event) => {
+  const handleOptionChange = (e) => {
     setIsSelected(true)
+    if (!isSelected) {
+      event({
+        event: 'click_form_radio',
+        event_category: 'click_event',
+      })
+    }
   }
 
   return (
@@ -18,6 +26,10 @@ export const Form = ({ qaState, setQaState }) => {
       method="POST"
       target="hidden_iframe"
       onSubmit={() => {
+        event({
+          event: 'click_form_submit',
+          event_category: 'click_event',
+        })
         setQaState(true)
       }}
     >

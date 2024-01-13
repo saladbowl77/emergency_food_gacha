@@ -9,6 +9,8 @@ import { Popup } from './_components/Popup'
 import { Form } from './_components/Form'
 import { foods } from './data'
 
+import { event } from '../lib/gtag'
+
 export default function Home() {
   const [shownArr, setShownArr] = useState(false)
   const [allPrice, setAllPrice] = useState(false)
@@ -21,6 +23,10 @@ export default function Home() {
   const [qaState, setQaState] = useState(false)
 
   const turnGacha = () => {
+    event({
+      event: 'click_turnGacha',
+      event_category: 'click_event',
+    })
     const max = 1000
     let nowCost = 0
     let nowFoodsArr = []
@@ -62,6 +68,10 @@ export default function Home() {
 
   const share = async () => {
     if (!window.navigator.share) {
+      event({
+        event: 'click_share_api_cant',
+        event_category: 'click_event',
+      })
       alert('ご利用のブラウザでは共有できません。')
       return
     }
@@ -72,12 +82,26 @@ export default function Home() {
         text: 'ランダムな非常食が出てくる非常食ガチャ。是非試してみてね!',
         url: shareUrl,
       })
-      alert('共有が完了しました。')
+      event({
+        event: 'click_share_api',
+        event_category: 'click_event',
+      })
       if (!qaState) {
         await setPopupShow(true)
       }
     } catch (e) {
-      console.log(e.message)
+      if (e.message == 'Abort due to cancellation of share.') {
+        event({
+          event: 'click_share_api_cancel',
+          event_category: 'click_event',
+        })
+      } else {
+        event({
+          event: 'click_share_api_error',
+          event_category: 'click_event',
+        })
+      }
+      console.log(e)
     }
   }
 
@@ -168,6 +192,10 @@ export default function Home() {
                 rel="noopener noreferrer"
                 target="_blank"
                 onClick={() => {
+                  event({
+                    event: 'click_share_twitter',
+                    event_category: 'click_event',
+                  })
                   if (!qaState) setPopupShow(true)
                 }}
               >
@@ -201,6 +229,10 @@ export default function Home() {
             </div>
             <button
               onClick={() => {
+                event({
+                  event: 'click_re_turnGacha',
+                  event_category: 'click_event',
+                })
                 turnGacha()
               }}
               className={styles.turnButton}
