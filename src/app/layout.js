@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.scss'
+import Link from 'next/link'
 
 import { Header } from '../components/Header'
 import GoogleAnalytics from '../components/GoogleAnalytics'
@@ -32,6 +33,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Header />
         {children}
+        <footer>
+          <Link href="about">このサイトについて</Link>
+        </footer>
       </body>
     </html>
   )
