@@ -24,6 +24,8 @@ export default function Home() {
   const [popupShow, setPopupShow] = useState(false)
   const [qaState, setQaState] = useState(false)
 
+  const [sortPopupShow, setSortPopupShow] = useState(false)
+
   const turnGacha = () => {
     event('click_turnGacha')
     const max = 1001
@@ -34,6 +36,32 @@ export default function Home() {
 
     let idArr = []
     let foodArr = foods
+
+    // もしそのまま食べれるがチェックされたらそれをソートする
+    if (sortOnly) {
+      foodArr = foodArr.filter((value) => {
+        if (value.isOnly) return value
+        return false
+      })
+    }
+
+    // もしジャンルがソートされたらそれに限定する
+    if (sortGenre != '全て') {
+      foodArr = foodArr.filter((value) => {
+        if (value.genre === sortGenre) return value
+        return false
+      })
+    }
+
+    console.log(sortAllergy)
+    if (sortAllergy.length > 0) {
+      foodArr = foodArr.filter((value) => {
+        if (sortAllergy.some((str) => value.allergy.includes(str))) return false
+        return value
+      })
+    }
+
+    console.log(foodArr)
 
     while (max > nowCost) {
       let foodsArr = []
@@ -98,8 +126,80 @@ export default function Home() {
     }
   }
 
+  const [sortOnly, setSortOnly] = useState(false)
+  const handleSortOnly = () => {
+    setSortOnly(!sortOnly)
+  }
+
+  const genreOption = [
+    '全て',
+    'ご飯類',
+    '麺類',
+    '水',
+    'お菓子',
+    'パン類',
+    'スープ類',
+  ]
+  const [sortGenre, setSortGenre] = useState('全て')
+  const handleSortGenre = (e) => {
+    setSortGenre(e.target.value)
+  }
+
+  const genreAllergy = [
+    'えび',
+    'かに',
+    'くるみ',
+    '小麦',
+    'そば',
+    '卵',
+    '乳',
+    '落花生(ピーナッツ)',
+    'アーモンド',
+    'あわび',
+    'いか',
+    'いくら',
+    'オレンジ',
+    'カシューナッツ',
+    'キウイフルーツ',
+    '牛肉',
+    'ごま',
+    'さけ',
+    'さば',
+    '大豆',
+    '鶏肉',
+    'バナナ',
+    '豚肉',
+    'まつたけ',
+    'もも',
+    'やまいも',
+    'りんご',
+    'ゼラチン',
+  ]
+  const [sortAllergy, setSortAllergy] = useState([])
+  const handleSortAllergy = (e) => {
+    const options = e.target.options
+    let value = []
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        value.push(options[i].value)
+      }
+    }
+    setSortAllergy(value)
+  }
+
+  const [isMobile, setIsMobile] = useState(false)
+
   useEffect(() => {
     if (window) setIsWebShare(navigator.share)
+    const ua = navigator.userAgent
+    if (
+      ua.indexOf('iPhone') > 0 ||
+      ua.indexOf('iPod') > 0 ||
+      ua.indexOf('iPad') > 0 ||
+      ua.indexOf('Android') > 0
+    ) {
+      setIsMobile(true)
+    }
   }, [])
 
   return (
@@ -194,6 +294,14 @@ export default function Home() {
             >
               もう一度回してみる
             </button>
+            <p
+              className={styles.sortPopupButton}
+              onClick={() => {
+                setSortPopupShow(true)
+              }}
+            >
+              アレルギーなどの条件を絞り込んでみる
+            </p>
           </div>
           <div className={styles.formWrap}>
             <Form qaState={qaState} setQaState={setQaState} />
@@ -216,6 +324,124 @@ export default function Home() {
           >
             {shownArr.length != 0 && 'もう一度'}回してみる
           </button>
+          <p
+            className={styles.sortPopupButton}
+            onClick={() => {
+              setSortPopupShow(true)
+            }}
+          >
+            アレルギーなどの条件を絞り込んでみる
+          </p>
+        </section>
+      )}
+
+      {sortPopupShow && (
+        <section className={styles.popUp}>
+          <div className={styles.popUpWrap}>
+            <div className={styles.popUpWrapHeader}>
+              <Image
+                className={styles.popUpWrapHeaderIcon}
+                onClick={() => {
+                  event('click_sort_popup_close')
+                  setSortPopupShow(false)
+                }}
+                src="/icon/close.svg"
+                alt="閉じるボタン"
+                width={24}
+                height={24}
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  objectFit: 'contain',
+                }}
+              />
+            </div>
+            <div className={styles.popUpWrapContent}>
+              <div className={styles.gacyaSort}>
+                <p className={styles.gacyaSortTitle}>条件の絞り込み</p>
+                <div className={styles.gacyaSortOnly}>
+                  <p className={styles.gacyaSortOnlyTitle}>
+                    開けてそのまま食べれるもののみにする：
+                  </p>
+                  <input
+                    className={styles.gacyaSortOnlyInput}
+                    type="checkbox"
+                    name="isOnly"
+                    id="isOnly"
+                    value="true"
+                    onChange={(e) => {
+                      handleSortOnly(e)
+                    }}
+                    checked={sortOnly}
+                  />
+                  <label htmlFor="isOnly"></label>
+                </div>
+                <div className={styles.gacyaSortGenre}>
+                  <p className={styles.gacyaSortGenreTitle}>ジャンルを絞る</p>
+                  <div className={styles.gacyaSortGenreSelect}>
+                    <select value={sortGenre} onChange={handleSortGenre}>
+                      {genreOption.map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div
+                  className={`${styles.gacyaSortAllergy} ${
+                    isMobile && styles.gacyaSortAllergyMobile
+                  }`}
+                >
+                  <p className={styles.gacyaSortAllergyTitle}>
+                    アレルギーを除外する
+                  </p>
+                  {sortAllergy}
+                  {isMobile ? (
+                    <div className={styles.gacyaSortAllergySelect}>
+                      <select
+                        multiple
+                        value={sortAllergy}
+                        onChange={(e) => {
+                          handleSortAllergy(e)
+                        }}
+                      >
+                        {genreAllergy.map((option, index) => (
+                          <option key={index} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  ) : (
+                    <div className={styles.gacyaSortAllergyCheckbox}>
+                      {genreAllergy.map((option, index) => (
+                        <div className={styles.gacyaSortAllergyCheckboxWrap}>
+                          <input
+                            type="checkbox"
+                            key={index}
+                            value={option}
+                            id={option}
+                            name={option}
+                            onChange={handleSortAllergy}
+                            checked={sortAllergy.includes(option)}
+                          />
+                          <label htmlFor={option}>{option}</label>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className={styles.popUpBackground}
+            onClick={() => {
+              event('click_sort_popup_close')
+              setSortPopupShow(false)
+            }}
+          ></div>
         </section>
       )}
     </main>
