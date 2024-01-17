@@ -186,6 +186,17 @@ export default function Home() {
     }
     setSortAllergy(value)
   }
+  const handleSortAllergyCheckbox = (e) => {
+    if (!sortAllergy.includes(e.target.value)) {
+      setSortAllergy([...sortAllergy, e.target.value])
+    } else {
+      setSortAllergy(
+        sortAllergy.filter((allergy, index) => allergy !== e.target.value),
+      )
+    }
+
+    console.log(sortAllergy)
+  }
 
   const [isMobile, setIsMobile] = useState(false)
 
@@ -285,23 +296,25 @@ export default function Home() {
                 </button>
               )}
             </div>
-            <button
-              onClick={() => {
-                event('click_re_turnGacha')
-                turnGacha()
-              }}
-              className={styles.turnButton}
-            >
-              もう一度回してみる
-            </button>
-            <p
-              className={styles.sortPopupButton}
-              onClick={() => {
-                setSortPopupShow(true)
-              }}
-            >
-              アレルギーなどの条件を絞り込んでみる
-            </p>
+            <div className={styles.buttonsReturn}>
+              <button
+                onClick={() => {
+                  event('click_re_turnGacha')
+                  turnGacha()
+                }}
+                className={styles.turnButton}
+              >
+                もう一度回してみる
+              </button>
+              <p
+                className={styles.sortPopupButton}
+                onClick={() => {
+                  setSortPopupShow(true)
+                }}
+              >
+                アレルギーなどの条件を絞り込む
+              </p>
+            </div>
           </div>
           <div className={styles.formWrap}>
             <Form qaState={qaState} setQaState={setQaState} />
@@ -330,7 +343,7 @@ export default function Home() {
               setSortPopupShow(true)
             }}
           >
-            アレルギーなどの条件を絞り込んでみる
+            アレルギーなどの条件を絞り込む
           </p>
         </section>
       )}
@@ -396,7 +409,6 @@ export default function Home() {
                   <p className={styles.gacyaSortAllergyTitle}>
                     アレルギーを除外する
                   </p>
-                  {sortAllergy}
                   {isMobile ? (
                     <div className={styles.gacyaSortAllergySelect}>
                       <select
@@ -423,7 +435,7 @@ export default function Home() {
                             value={option}
                             id={option}
                             name={option}
-                            onChange={handleSortAllergy}
+                            onChange={handleSortAllergyCheckbox}
                             checked={sortAllergy.includes(option)}
                           />
                           <label htmlFor={option}>{option}</label>
