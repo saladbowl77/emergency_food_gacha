@@ -20,8 +20,14 @@ export const FoodCard = ({ data }) => {
                   <span className={styles.priceCardTextsPriceNotice}>
                     /一個当たり
                   </span>
-                )}
+                )}{' '}
+                | 期限:{val.limit}
               </p>
+              {val.allergy && (
+                <p className={styles.priceCardTextsPrice}>
+                  アレルギー : {val.allergy.replace(',', '、')}
+                </p>
+              )}
             </div>
 
             <Link
