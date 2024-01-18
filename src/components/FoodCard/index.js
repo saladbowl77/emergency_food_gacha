@@ -25,7 +25,7 @@ export const FoodCard = ({ data }) => {
               </p>
               {val.allergy && (
                 <p className={styles.priceCardTextsPrice}>
-                  アレルギー : {val.allergy.replace(',', '、')}
+                  アレルギー : {val.allergy.split(',').join('、')}
                 </p>
               )}
             </div>
