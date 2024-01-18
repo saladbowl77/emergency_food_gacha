@@ -128,6 +128,7 @@ export default function Home() {
 
   const [sortOnly, setSortOnly] = useState(false)
   const handleSortOnly = () => {
+    event(`click_sort_only_${!sortOnly}`)
     setSortOnly(!sortOnly)
   }
 
@@ -142,6 +143,7 @@ export default function Home() {
   ]
   const [sortGenre, setSortGenre] = useState('全て')
   const handleSortGenre = (e) => {
+    event(`click_sort_option_${e.target.value}`)
     setSortGenre(e.target.value)
   }
 
@@ -185,6 +187,7 @@ export default function Home() {
       }
     }
     setSortAllergy(value)
+    event('click_sort_allergy')
   }
   const handleSortAllergyCheckbox = (e) => {
     if (!sortAllergy.includes(e.target.value)) {
